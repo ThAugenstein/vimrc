@@ -5,6 +5,12 @@ set number
 set ruler
 set wrap
 
+nnoremap <SPACE> <Nop>
+let mapleader = "\<Space>"
+
+" <leader> mappings, except for plugin stuff
+map <leader>v :sp ~/.vimrc<cr>
+
 " auto-reload .vimrc on save
 if has ('autocmd')
     augroup vimrc
@@ -15,7 +21,7 @@ endif " has autocmd
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'altercation/vim-colors-solarized'
+Plug 'altercation/vim-colors-solarized'	
 Plug 'yegappan/mru'
 
 call plug#end()
@@ -27,3 +33,6 @@ call plug#end()
 syntax enable
 set background=dark
 colorscheme solarized
+
+" MRU
+map <leader>f :MRU<CR>
