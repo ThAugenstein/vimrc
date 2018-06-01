@@ -36,6 +36,8 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'altercation/vim-colors-solarized'	
 Plug 'yegappan/mru'
+Plug 'vim-perl/vim-perl'
+Plug 'vim-perl/vim-perl6'
 
 call plug#end()
 
