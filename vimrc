@@ -38,6 +38,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'yegappan/mru'
 Plug 'vim-perl/vim-perl'
 Plug 'vim-perl/vim-perl6'
+Plug 'keith/swift.vim'
 
 call plug#end()
 
