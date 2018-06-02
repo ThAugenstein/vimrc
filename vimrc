@@ -21,6 +21,15 @@ set smartcase           " If there is an uppercase in the search term
 set incsearch           " Highlight search results when typing
 set hlsearch            " Highlight search results
 
+" Backspace behaves as expected
+set backspace=indent,eol,start
+
+" Expand tabs to spaces
+set expandtab           " Use spaces instead of tabs
+set tabstop=4           " 1 tab = 4 spaces
+set shiftwidth=4        " 1 tab = 4 spaces
+set smarttab            " Be smart when using tabs ;)
+
 "--- Auto-reload .vimrc on save
 
 if has ('autocmd')
