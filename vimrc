@@ -4,6 +4,9 @@ set nocompatible
 set number
 set ruler
 set wrap
+set scrolloff=3         " Display at least 3 lines around the cursor
+                        " (for scrolling)
+set autoread            " Set do auto read when a file has changed from the outside
 
 "--- Set leader
 
@@ -20,6 +23,19 @@ set smartcase           " If there is an uppercase in the search term
                         " search casesensitive again
 set incsearch           " Highlight search results when typing
 set hlsearch            " Highlight search results
+
+" -- Beep
+set visualbell          " Prevent Vim from beeping
+set noerrorbells        " Prevent Vim from beeping
+
+" Turn on persistent undo on
+try
+    set undodir=~/.vim_runtime/temp_dirs/undodir
+    set undofile
+catch
+endtry
+
+set history=500
 
 " Backspace behaves as expected
 set backspace=indent,eol,start
@@ -38,6 +54,45 @@ if has ('autocmd')
         autocmd! BufWritePost $MYGVIMRC if has('gui_running') | so % | echom "Reloaded " . $MYGVIMRC | endif | redraw
     augroup END
 endif " has autocmd
+
+"--- Relative line numbers, absolut numbers insert mode or without focus
+set number relativenumber
+
+augroup numbertoggle
+    autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+    autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
+"--- Make <Tab> switch windows
+map <Tab> <C-W>w
+map <Bar> <C-W>v<C-W><Right>
+map -     <C-W>s<C-W><Down>
+
+" ---Easier movement between windows with Ctrl - hjkl
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+"--- Disable the directional keys
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+
+"--- Turn on persistent undo on
+try
+    set undodir=~/.vim_runtime/temp_dirs/undodir
+    set undofile
+catch
+endtry
+
+set history=500
 
 "--- Plugins
 
