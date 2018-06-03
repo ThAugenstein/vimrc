@@ -35,7 +35,7 @@ set smarttab            " Be smart when using tabs ;)
 if has ('autocmd')
     augroup vimrc
         autocmd! BufWritePost $MYVIMRC source % | echom "Reloaded " . $MYVIMRC | redraw
-	autocmd! BufWritePost $MYGVIMRC if has('gui_running') | so % | echom "Reloaded " . $MYGVIMRC | endif | redraw
+        autocmd! BufWritePost $MYGVIMRC if has('gui_running') | so % | echom "Reloaded " . $MYGVIMRC | endif | redraw
     augroup END
 endif " has autocmd
 
@@ -43,8 +43,11 @@ endif " has autocmd
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'altercation/vim-colors-solarized'	
+Plug 'altercation/vim-colors-solarized'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'yegappan/mru'
+Plug 'tpope/vim-fugitive'
 Plug 'vim-perl/vim-perl'
 Plug 'vim-perl/vim-perl6'
 Plug 'keith/swift.vim'
@@ -62,3 +65,6 @@ colorscheme solarized
 "--- MRU
 
 map <leader>f :MRU<CR>
+
+"--- Airline
+let g:airline_solarized_bg='dark'
