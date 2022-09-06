@@ -99,6 +99,7 @@ set history=500
 call plug#begin('~/.vim/plugged')
 
 Plug 'altercation/vim-colors-solarized'
+Plug 'sainnhe/everforest'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'yegappan/mru'
@@ -120,7 +121,12 @@ call plug#end()
 
 syntax enable
 set background=dark
-colorscheme solarized
+if has('termguicolors')
+    set termguicolors
+endif
+let g:everforest_background = 'hard'
+colorscheme everforest
+"--- colorscheme solarized
 
 "--- MRU
 
